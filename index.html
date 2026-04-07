@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jiya Mary Jobi | Portfolio</title>
+    <link rel="stylesheet" href="style.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <!-- Preloader -->
+    <div id="loader">
+        <div class="loader-bg-grid"></div>
+        
+        <!-- Corner Brackets -->
+        <div class="corner-bracket top-left"></div>
+        <div class="corner-bracket top-right"></div>
+        <div class="corner-bracket bottom-left"></div>
+        <div class="corner-bracket bottom-right"></div>
+
+        <div class="loader-content">
+            <div class="loader-circle-container">
+                <div class="loader-circle outer"></div>
+                <div class="loader-circle inner"></div>
+                <div class="loader-logo">JMJ.</div>
+            </div>
+            <div class="loader-percentage">0%</div>
+            <div class="loader-progress">
+                <div class="loader-bar"></div>
+            </div>
+            <div class="loader-status">Booting System...</div>
+        </div>
+        <div class="loader-data-stream">
+            <span>CORE_INIT_OK</span>
+            <span>GFX_SYNC_STABLE</span>
+            <span>USER_AUTH_GRANTED</span>
+        </div>
+    </div>
+
+    <!-- Canvas for floating balls and cursor threads -->
+    <canvas id="bg-canvas"></canvas>
+    
+    <nav class="navbar">
+        <div class="logo">JMJ.</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+        </div>
+        <button id="theme-toggle" aria-label="Toggle Theme">
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+    </nav>
+
+    <main id="home" class="hero">
+        <div class="hero-content">
+            <!-- Decorative Elements -->
+            <div class="hero-deco circle-deco"></div>
+            <div class="hero-deco square-deco"></div>
+            
+            <p class="greeting reveal-text">Hello, I'm</p>
+            <div class="name-role-grid">
+                <h1 class="name reveal-name">
+                    <span class="first-name">Jiya</span>
+                    <span class="last-name">Mary Jobi</span>
+                    <div class="name-node top-left"></div>
+                    <div class="name-node bottom-right"></div>
+                </h1>
+                <h2 class="role reveal-text">Engineering Student &<br>Automation Testing Professional</h2>
+            </div>
+        </div>
+
+        <a href="#about" class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </a>
+    </main>
+
+    <section id="about" class="section about-section reveal">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="objective">
+                        Passionate about technology and continuous learning, I excel at quickly adapting to new tools and processes while maintaining a strong attention to detail. With strong communication abilities and a results-driven mindset, I thrive in dynamic teams where priorities shift and innovation is valued. Eager to apply my knowledge, solve complex challenges, and contribute meaningfully to organizational goals.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section skills-section reveal">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Hard Skills</h3>
+                    <div class="skill-tags">
+                        <span>HTML5</span>
+                        <span>CSS</span>
+                        <span>Python</span>
+                        <span>Javascript</span>
+                        <span>C</span>
+                        <span>Git</span>
+                        <span>SQL</span>
+                        <span>Java</span>
+                        <span>Selenium</span>
+                        <span>Agile</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span>Problem solving</span>
+                        <span>Time management</span>
+                        <span>Team player</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section experience-section reveal">
+        <div class="container">
+            <h2 class="section-title">Work & Internship</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card">
+                        <span class="date">Present</span>
+                        <h3>Automation Test Engineer</h3>
+                        <h4>Cognizant Technology Solutions Corporation</h4>
+                        <p>Skilled in Selenium, Java, and TestNG to deliver high-quality automation solutions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card">
+                        <span class="date">May 2023 – July 2023</span>
+                        <h3>Intel Unnati Industrial Training</h3>
+                        <h4>Intel Training Program</h4>
+                        <p>Developed a fake news detection system using machine learning techniques (NumPy, Pandas, NLTK). Implemented Random Forest, Decision Tree, and BERT models.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section projects-section reveal">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card card">
+                    <div class="project-info">
+                        <h3>Automated ZigWheels Testing</h3>
+                        <p>Developed a framework using Selenium (Java), Cucumber (BDD), and TestNG. Implemented POM and reusable utilities for core feature validation.</p>
+                        <div class="project-tags">
+                            <span>Selenium</span>
+                            <span>Java</span>
+                            <span>Cucumber</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card card">
+                    <div class="project-info">
+                        <h3>Traffic Sign Detection</h3>
+                        <p>Developed a high-precision Traffic Sign Detection system using YOLOv8, optimized for autonomous vehicle applications.</p>
+                        <div class="project-tags">
+                            <span>YOLOv8</span>
+                            <span>Computer Vision</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card card">
+                    <div class="project-info">
+                        <h3>Blockchain Accident Investigation</h3>
+                        <p>Currently developing a blockchain-based secure data management system for vehicle accident investigations with real-time logging.</p>
+                        <div class="project-tags">
+                            <span>Blockchain</span>
+                            <span>Security</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card card">
+                    <div class="project-info">
+                        <h3>AI Answer Sheet Evaluator</h3>
+                        <p>Automatic evaluator for subjective answers using OpenAI's GPT-4. Built with React.js frontend and MongoDB backend.</p>
+                        <div class="project-tags">
+                            <span>GPT-4</span>
+                            <span>React.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section education-section reveal">
+        <div class="container">
+            <h2 class="section-title">Education & Credentials</h2>
+            <div class="education-grid">
+                <div class="education-card card">
+                    <h3>BTech in Computer Science</h3>
+                    <h4>Saintgits College of Engineering (Autonomous)</h4>
+                    <p class="edu-meta">2021 – 2025 | CGPA 7.6</p>
+                    <p>Minor in Robotics and Automation. NBA Accredited institution.</p>
+                </div>
+                <div class="education-card card">
+                    <h3>Higher Secondary School</h3>
+                    <h4>Mary Rani Public School & Junior College</h4>
+                    <p class="edu-meta">2019 – 2021 | 95.2%</p>
+                    <p>Completed under CBSE board with distinction.</p>
+                </div>
+                <div class="education-card card certification">
+                    <div class="cert-badge">Elite</div>
+                    <h3>Programming in C</h3>
+                    <h4>IIT Kharagpur</h4>
+                    <p class="edu-meta">NPTEL Certification</p>
+                    <p>Elite category in "Problem Solving through Programming in C" with a consolidated score of 73%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Jiya Mary Jobi. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js?v=2"></script>
+</body>
+</html>
