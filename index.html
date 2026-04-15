@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jiya Mary Joby | Portfolio 4.2.1v</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Luckiest+Guy&family=Sora:wght@300;500;700;800&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="loading-state">
+    <!-- ============================================================
+         PART 2: Preloader & System Boot
+         ============================================================ -->
+    <div id="loader">
+        <!-- New Background Layer -->
+        <div class="loader-ambient-bg">
+            <div class="floating-shape s1"></div>
+            <div class="floating-shape s2"></div>
+            <div class="floating-shape s3"></div>
+        </div>
+
+        <div class="loader-visual">
+            <!-- Satellite Orbiters -->
+            <div class="portal-orbiters">
+                <div class="orbiter o1"></div>
+                <div class="orbiter o2"></div>
+            </div>
+
+            <div class="glass-portal">
+                <div class="portal-content">
+                    <span class="portal-logo">Jiya Mary Joby</span>
+                </div>
+                <!-- Ambient Bloom Rings -->
+                <div class="bloom-ring r1"></div>
+                <div class="bloom-ring r2"></div>
+            </div>
+
+            <!-- Circular Progress -->
+            <svg class="progress-svg" viewBox="0 0 100 100">
+                <circle class="progress-track" cx="50" cy="50" r="48"></circle>
+                <circle class="progress-path" cx="50" cy="50" r="48"></circle>
+            </svg>
+        </div>
+
+        <div class="loader-footer">
+            <div class="loader-percentage">0%</div>
+            <div class="loader-status">System Initialization</div>
+        </div>
+    </div>
+    <!-- ============================================================
+         PART 1: Global & Background Elements
+         Elements: site-frame, bg-canvas, bg-overlay, bg-noise,
+                   scroll-bar, scroll-thumb
+         ============================================================ -->
+
+    <!-- Background Canvas (Quantum Flow Grid animation) -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Global Overlay (gradient background layer) -->
+    <div class="bg-overlay"></div>
+
+    <!-- Noise Texture (subtle grain overlay) -->
+    <div class="bg-noise"></div>
+
+    <!-- Site Frame (decorative border + custom scrollbar host) -->
+    <div class="site-frame">
+        <!-- Custom Scroll Track -->
+        <div class="scroll-bar">
+            <!-- Custom Scroll Thumb -->
+            <div class="scroll-thumb"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         PART 3: Navigation Bar
+         ============================================================ -->
+    <nav class="navbar">
+        <!-- Logo / Name -->
+        <div class="nav-brand">
+            <div class="logo">Jiya Mary Joby</div>
+        </div>
+
+        <!-- Nav Links (populated via floating FAB menu) -->
+        <div class="nav-links"></div>
+
+        <!-- Right Side: Theme Toggle + Time + Location -->
+        <div class="nav-right">
+            <!-- Theme Toggle Button -->
+            <div class="theme-switch-wrapper">
+                <button id="theme-toggle" aria-label="Toggle Theme" class="theme-switch-custom">
+                    <!-- Switch Handle (holds sun & moon icons) -->
+                    <div class="switch-handle">
+                        <!-- Sun Icon (light mode) -->
+                        <svg class="sun-icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="8" width="8" height="8" rx="1" transform="rotate(45 12 12)"
+                                fill="currentColor" />
+                            <circle cx="12" cy="3" r="1.5" fill="currentColor" />
+                            <circle cx="12" cy="21" r="1.5" fill="currentColor" />
+                            <circle cx="3" cy="12" r="1.5" fill="currentColor" />
+                            <circle cx="21" cy="12" r="1.5" fill="currentColor" />
+                        </svg>
+                        <!-- Moon Icon (dark mode) -->
+                        <svg class="moon-icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 4a8 8 0 1 0 8 8 8.4 8.4 0 0 1-8-8Z" fill="currentColor" />
+                            <path d="M17 4l.3 1.2 1.2.3-1.2.3-.3 1.2-.3-1.2-1.2-.3 1.2-.3.3-1.2z" fill="currentColor" />
+                        </svg>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Navigation Time + Location Tag -->
+            <div class="nav-info">
+                <span class="time" id="nav-time">00:00:00</span>
+                <span class="location">KOCHI, IN</span>
+            </div>
+
+            <!-- Menu Circle Trigger -->
+            <div class="menu-container">
+                <button id="menu-trigger" class="menu-trigger" aria-label="Toggle Menu">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </button>
+                <div id="menu-dropdown" class="menu-dropdown">
+                    <!-- Links will be populated via JS or static -->
+                    <a href="#home" class="menu-bubble">HOME</a>
+                    <a href="#about" class="menu-bubble">ABOUT</a>
+                    <a href="#skills" class="menu-bubble">SKILLS</a>
+                    <a href="#experience" class="menu-bubble">HISTORY</a>
+                    <a href="#projects" class="menu-bubble">DEPLOYMENT</a>
+                    <a href="#education" class="menu-bubble">ACADEMICS</a>
+                    <a href="#contact" class="menu-bubble">UPLINK</a>
+
+                    <!-- Social Row Bubbles -->
+                    <div class="menu-social-row">
+                        <a href="https://www.linkedin.com/in/jiyamaryjoby/" target="_blank" rel="noopener noreferrer"
+                            class="menu-social-bubble" title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect width="4" height="12" x="2" y="9"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/jiya42" target="_blank" rel="noopener noreferrer"
+                            class="menu-social-bubble" title="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                                </path>
+                                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:jiyamaryjoby@gmail.com" target="_blank" rel="noopener noreferrer"
+                            class="menu-social-bubble" title="Email">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                        <a href="Doc/resume_jiyamary.pdf" target="_blank" rel="noopener noreferrer"
+                            class="menu-social-bubble" title="Download CV">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <path d="M12 18v-6"></path>
+                                <path d="m9 15 3 3 3-3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+         PART 4: Hero Section
+         Elements: #home (.hero), .hero-content, .hero-deco,
+                   .hero-hud-labels-left/right, .hud-tag,
+                   .greeting, .name-role-grid, .name, .role,
+                   .hud-crosshair (×4), .scroll-indicator
+         ============================================================ -->
+    <main id="home" class="hero">
+        <!-- Independent Greeting Element -->
+        <p class="greeting reveal-text">Hello, I'm</p>
+
+        <div class="hero-content">
+            <!-- Decorative background shapes -->
+            <div class="hero-deco circle-deco"></div>
+            <div class="hero-deco square-deco"></div>
+
+            <!-- HUD Tags — Left side (rotated vertically) -->
+            <div class="hero-hud-labels-left">
+                <span class="hud-tag fade-in-up">001 / SYSTEM_READY</span>
+                <span class="hud-tag fade-in-up">002 / COGNIZANT_INTEL</span>
+            </div>
+
+            <!-- HUD Tags — Right side (rotated vertically) -->
+            <div class="hero-hud-labels-right">
+                <span class="hud-tag fade-in-up">SRC_CODE / JMJ_PORTFOLIO</span>
+                <span class="hud-tag fade-in-up">TIMESTAMP / 2026.04</span>
+            </div>
+
+            <!-- Main Name + Role -->
+            <div class="name-role-grid">
+                <!-- Main Name -->
+                <h1 class="name reveal-name">
+                    <span class="first-name">Jiya</span>
+                    <span class="last-name">Mary Joby</span>
+                </h1>
+
+                <!-- Sub-headline / Role -->
+                <h2 class="role reveal-text">
+                    Engineering Student &<br>Automation Testing Professional
+                </h2>
+            </div>
+
+            <!-- Crosshair Icons — four corners -->
+            <div class="hud-crosshair top-left">+</div>
+            <div class="hud-crosshair top-right">+</div>
+            <div class="hud-crosshair bottom-left">+</div>
+            <div class="hud-crosshair bottom-right">+</div>
+        </div>
+
+        <!-- Scroll Indicator (animated mouse) -->
+        <a href="#about" class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </a>
+    </main>
+
+    <!-- ============================================================
+         PART 5: Content Section — About (#about)
+         Primary container: .about-new-layout
+         Elements: .about-section, .about-left, .about-label,
+                   .about-headline, .about-description,
+                   .about-right, .about-info-item,
+                   .info-label, .info-value
+         ============================================================ -->
+    <section id="about" class="section about-section reveal">
+        <div class="container about-new-layout">
+
+            <!-- ── Left Column: Headline + Description ── -->
+            <div class="about-left">
+
+                <!-- Section Label -->
+                <span class="about-label reveal-item">01. ABOUT</span>
+
+                <!-- Main Headline -->
+                <h2 class="about-headline reveal-item">
+                    Engineer. Automation.<br><span class="text-accent">Strategic thinker.</span>
+                </h2>
+
+                <!-- Body Copy -->
+                <div class="about-description reveal-item">
+                    <p>I'm an Automation Test Engineer driven by the challenge of creating resilient testing systems. My
+                        process starts with thorough requirement analysis, moves through architectural planning, and
+                        results in automation frameworks that deliver rapid, reliable feedback under real-world
+                        pressure.</p>
+                    <p>I don't just find bugs; I prevent them. For me, quality engineering begins before the first line
+                        of code and ensures performance long after deployment.</p>
+                </div>
+
+            </div>
+
+            <!-- ── Right Column: Info Items ── -->
+            <div class="about-right">
+
+                <div class="about-info-item reveal-item">
+                    <span class="info-label">EXPERIENCE</span>
+                    <span class="info-value">2+ years</span>
+                </div>
+
+                <div class="about-info-item reveal-item">
+                    <span class="info-label">CURRENT ROLE</span>
+                    <span class="info-value">Automation Test Engineer · Cognizant</span>
+                </div>
+
+                <div class="about-info-item reveal-item">
+                    <span class="info-label">LOCATION</span>
+                    <span class="info-value">Kochi, India</span>
+                </div>
+
+                <div class="about-info-item reveal-item">
+                    <span class="info-label">FOCUS</span>
+                    <span class="info-value">Selenium · Java · Framework Design</span>
+                </div>
+
+                <div class="about-info-item reveal-item">
+                    <span class="info-label">AVAILABLE FOR</span>
+                    <span class="info-value">Lead QA · Test Automation Architect roles</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- ============================================================
+         PART 6: Content Section — Skills (#skills)
+         Elements: .skills-section, .expertise-bento-grid,
+                   .expertise-info-block, .expertise-item
+         ============================================================ -->
+    <section id="skills" class="section skills-section reveal">
+        <div class="container">
+            <div class="expertise-bento-grid">
+
+                <!-- ── Bento Block 01: Text Info ── -->
+                <div class="expertise-info-block reveal-item">
+                    <span class="expertise-label">02. SKILLS</span>
+                    <h2 class="expertise-title">EXPERTISE</h2>
+                    <p class="expertise-desc">
+                        Highly proficient in modern automation frameworks, scalable architectures, and core software
+                        engineering principles. My expertise bridges the gap between development and reliability.
+                    </p>
+                </div>
+
+                <!-- ── Bento Block 02: Card 01 ── -->
+                <div class="expertise-item reveal-item">
+                    <span class="item-tag">SYSTEM_LANGUAGES</span>
+                    <h3 class="item-title">Core Development</h3>
+                    <ul class="item-list">
+                        <li>Python</li>
+                        <li>Javascript (ES6+)</li>
+                        <li>Java / C</li>
+                    </ul>
+                </div>
+
+                <!-- ── Bento Block 03: Card 02 ── -->
+                <div class="expertise-item reveal-item">
+                    <span class="item-tag">DATA_ARCHITECTURE</span>
+                    <h3 class="item-title">Web & Structures</h3>
+                    <ul class="item-list">
+                        <li>HTML5 / CSS3</li>
+                        <li>SQL Databases</li>
+                        <li>Responsive Sync</li>
+                    </ul>
+                </div>
+
+                <!-- ── Bento Block 04: Card 03 ── -->
+                <div class="expertise-item reveal-item">
+                    <span class="item-tag">SOFT_SYSTEMS</span>
+                    <h3 class="item-title">Analytical Core</h3>
+                    <ul class="item-list">
+                        <li>Strategic Problem Solving</li>
+                        <li>Team Synchronicity</li>
+                        <li>Detail Orientation</li>
+                    </ul>
+                </div>
+
+                <!-- ── Bento Block 05: Card 04 ── -->
+                <div class="expertise-item reveal-item">
+                    <span class="item-tag">AUTOMATION_STACK</span>
+                    <h3 class="item-title">Validation Engine</h3>
+                    <ul class="item-list">
+                        <li>Selenium (WebDriver)</li>
+                        <li>Git Version Control</li>
+                        <li>Agile Methodology</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PART 7: Content Section — Experience (#experience)
+         Primary container: .history-new-layout
+         Elements: .experience-section, .history-header,
+                   .history-label, .history-title,
+                   .history-tagline-bar, .history-list,
+                   .history-item, .history-num, .history-main,
+                   .history-org, .history-desc, .history-date
+         ============================================================ -->
+    <section id="experience" class="section experience-section reveal">
+        <div class="container history-new-layout">
+
+            <!-- ── Header: Label + Title ── -->
+            <div class="history-header">
+                <span class="history-label reveal-item">03. HISTORY</span>
+                <h2 class="history-title reveal-item">Experience</h2>
+            </div>
+
+            <!-- ── Tagline Bar (HUD REDESIGN) ── -->
+            <div class="history-tagline-bar reveal-item">
+                <div class="history-tag"><span>01</span> Precise</div>
+                <div class="history-tag"><span>02</span> Structured</div>
+                <div class="history-tag"><span>03</span> Quality-Driven</div>
+                <div class="history-tag"><span>04</span> Automation-First</div>
+            </div>
+
+            <!-- ── Experience List ── -->
+            <div class="history-list">
+
+                <!-- Entry 01 -->
+                <div class="history-item reveal-item">
+                    <span class="history-num">01</span>
+                    <div class="history-main">
+                        <h3>Automation Test Engineer</h3>
+                        <span class="history-org">Cognizant Technology Solutions</span>
+                    </div>
+                    <div class="history-desc">
+                        <p>Skilled in Selenium, Java, and TestNG to deliver high-quality automation solutions and
+                            resilient testing frameworks.</p>
+                    </div>
+                    <span class="history-date">Present <span class="status-orb"></span></span>
+                </div>
+
+                <!-- Entry 02 -->
+                <div class="history-item reveal-item">
+                    <span class="history-num">02</span>
+                    <div class="history-main">
+                        <h3>Intel Unnati Training</h3>
+                        <span class="history-org">Intel Corporation</span>
+                    </div>
+                    <div class="history-desc">
+                        <p>Developed a hybrid fake news detection system using machine learning models (Random Forest,
+                            BERT) and NLP data processing.</p>
+                    </div>
+                    <span class="history-date">2023</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PART 8: Content Section — Projects (#projects)
+         Primary container: .forge-new-layout
+         Elements: .projects-section, .forge-left-new,
+                   .forge-headline-new (.text-accent),
+                   .forge-subheadline-new, .forge-right-new,
+                   .projects-bento-grid, .bento-card (.card-large /
+                   .card-small), .bento-card-top, .bento-desc,
+                   .bento-card-bottom, .bento-card-title,
+                   .bento-arrow-icon
+         ============================================================ -->
+    <section id="projects" class="section projects-section reveal">
+        <div class="container projects-new-layout">
+
+            <!-- ── Header Block (Matches Experience/Expertise) ── -->
+            <div class="projects-header">
+                <span class="about-label reveal-item">04. DEPLOYMENT</span>
+                <h2 class="forge-headline-new reveal-item">
+                    Transforming Concepts into<br><span class="text-accent">Reality</span>
+                </h2>
+                <p class="forge-subheadline-new reveal-item">
+                    Unlock the full potential of system reliability with specialized engineering blocks.
+                    Witness how precise code turns ideas into stunning realities.
+                </p>
+            </div>
+
+            <!-- ── Bento Grid of Project Cards ── -->
+            <div class="projects-bento-grid">
+                <!-- Card 01 — Large -->
+                <div class="bento-card card-large reveal-item">
+                    <div class="bento-card-top">
+                        <p class="bento-desc">
+                            Automated verification frameworks for stable, high-performance releases.
+                        </p>
+                    </div>
+                    <div class="bento-card-bottom">
+                        <h3 class="bento-card-title">Automated ZigWheels</h3>
+                    </div>
+                    <div class="bento-arrow-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Card 02 — Small -->
+                <div class="bento-card card-small reveal-item">
+                    <div class="bento-card-top">
+                        <p class="bento-desc">
+                            Real-time detection insights pushing autonomous safety.
+                        </p>
+                    </div>
+                    <div class="bento-card-bottom">
+                        <h3 class="bento-card-title">YOLOv8 Detection</h3>
+                    </div>
+                    <div class="bento-arrow-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Card 03 — Small -->
+                <div class="bento-card card-small reveal-item">
+                    <div class="bento-card-top">
+                        <p class="bento-desc">
+                            Secure ledger entries for accident investigation.
+                        </p>
+                    </div>
+                    <div class="bento-card-bottom">
+                        <h3 class="bento-card-title">Blockchain Secure</h3>
+                    </div>
+                    <div class="bento-arrow-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Card 04 — Large -->
+                <div class="bento-card card-large reveal-item">
+                    <div class="bento-card-top">
+                        <p class="bento-desc">
+                            AI evaluation engine polishing detail for assessment workflows at scale.
+                        </p>
+                    </div>
+                    <div class="bento-card-bottom">
+                        <h3 class="bento-card-title">AI Evaluator</h3>
+                    </div>
+                    <div class="bento-arrow-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+     PART 9: Content Section — Education (#education)
+     Primary container: .education-new-layout
+     Elements: .education-section, .edu-left, .about-label,
+               .edu-headline (.accent-text), .edu-subheadline,
+               .edu-right, .edu-cards-grid,
+               .edu-card, .edu-card-inner, .edu-card-category,
+               .edu-card-main, .edu-degree, .edu-ins,
+               .edu-details, .edu-number
+     ============================================================ -->
+    <section id="education" class="section education-section reveal">
+        <div class="container education-new-layout">
+
+            <!-- ── Left Column: Sticky label + headline + description ── -->
+            <div class="edu-left">
+
+                <!-- Section Label -->
+                <span class="about-label reveal-item">05. ACADEMICS & ARCHIVE</span>
+
+                <!-- Main Headline with accent word -->
+                <h2 class="edu-headline reveal-item">
+                    Degrees & <span class="accent-text">Credentials</span>
+                </h2>
+
+                <!-- Supporting description -->
+                <p class="edu-subheadline reveal-item">
+                    The foundational architectural blocks that power my engineering approach,
+                    from core algorithms to specialized robotics systems.
+                </p>
+
+            </div>
+
+            <!-- ── Right Column: 3-card education grid ── -->
+            <div class="edu-right">
+                <div class="edu-cards-grid">
+
+                    <!-- Card 01 — Undergraduate -->
+                    <div class="edu-card reveal-item">
+                        <div class="edu-card-inner">
+                            <h3 class="edu-card-category">UNDERGRADUATE</h3>
+                            <div class="edu-card-main">
+                                <h4 class="edu-degree">BTech in Computer Science</h4>
+                                <p class="edu-ins">Saintgits College of Engineering (Autonomous)</p>
+                                <ul class="edu-details">
+                                    <li>2021 – 2025</li>
+                                    <li>CGPA 7.6</li>
+                                    <li>Minor in Robotics</li>
+                                    <li>NBA Accredited</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Large ghost number bottom-right -->
+                        <div class="edu-number">01</div>
+                    </div>
+
+                    <!-- Card 02 — Schooling -->
+                    <div class="edu-card reveal-item">
+                        <div class="edu-card-inner">
+                            <h3 class="edu-card-category">SCHOOLING</h3>
+                            <div class="edu-card-main">
+                                <h4 class="edu-degree">Higher Secondary</h4>
+                                <p class="edu-ins">Mary Rani Public School & Junior College</p>
+                                <ul class="edu-details">
+                                    <li>2019 – 2021</li>
+                                    <li>95.2% Aggregate</li>
+                                    <li>CBSE Board</li>
+                                    <li>Distinction Record</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="edu-number">02</div>
+                    </div>
+
+                    <!-- Card 03 — Certification -->
+                    <div class="edu-card reveal-item">
+                        <div class="edu-card-inner">
+                            <h3 class="edu-card-category">CERTIFICATION</h3>
+                            <div class="edu-card-main">
+                                <h4 class="edu-degree">IIT Certification</h4>
+                                <p class="edu-ins">NPTEL / IIT Kharagpur</p>
+                                <ul class="edu-details">
+                                    <li>Programming in C</li>
+                                    <li>Elite Category</li>
+                                    <li>Scored 73%</li>
+                                    <li>Problem Solving</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="edu-number">03</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PART 10: Content Section — Contact (#contact)
+         Primary container: .contact-section
+         Elements: .section-header.centered, .system-tag,
+                   .section-title, .contact-art-wrapper,
+                   .cyber-cube-container, .cyber-cube,
+                   .face (.front / .back / .top / .bottom /
+                   .left / .right)
+         ============================================================ -->
+    <section id="contact" class="section contact-section reveal">
+        <div class="container contact-new-layout">
+
+            <!-- ── Left Column: Sticky label + headline + description ── -->
+            <div class="contact-left">
+                <!-- Section Label -->
+                <span class="about-label reveal-item">06. UPLINK</span>
+
+                <!-- Main Headline -->
+                <h2 class="contact-headline reveal-item">
+                    Initialize_<span class="accent-text">Connect</span>
+                </h2>
+
+                <!-- Supporting description -->
+                <p class="contact-subheadline reveal-item">
+                    Ready to bridge the gap between concept and code? Let's initialize a connection
+                    and build the next generation of resilient automation systems together.
+                </p>
+
+                <div class="contact-actions reveal-item">
+                    <div class="contact-method-socials">
+                        <!-- LinkedIn -->
+                        <a href="https://linkedin.com/in/jiya-mary-joby" target="_blank" class="social-segment"
+                            title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect width="4" height="12" x="2" y="9"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <span class="segment-divider">|</span>
+                        <!-- GitHub -->
+                        <a href="https://github.com/jiyamaryjoby" target="_blank" class="social-segment" title="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                                </path>
+                                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                            </svg>
+                        </a>
+                        <span class="segment-divider">|</span>
+                        <!-- CV -->
+                        <a href="#" class="social-segment" title="Download CV">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <path d="M12 18v-6"></path>
+                                <path d="m9 15 3 3 3-3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="contact-method-main">
+                        <a href="mailto:jiyamaryjoby@gmail.com" class="email-link">jiyamaryjoby@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Right Column: 3D Art Wrapper ── -->
+            <div class="contact-right">
+                <div class="contact-art-wrapper reveal-item">
+                    <div class="cyber-cube-container">
+                        <div class="cyber-cube">
+                            <!-- Six faces of the cube -->
+                            <div class="face front"></div>
+                            <div class="face back"></div>
+                            <div class="face top"></div>
+                            <div class="face bottom"></div>
+                            <div class="face left"></div>
+                            <div class="face right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PART 11: Site Footer (RE-DESIGN BASED ON FLEXIO)
+         ============================================================ -->
+    <footer class="site-footer reveal">
+        <div class="container footer-new-layout">
+
+            <!-- ── Footer Top: Links & Contact ── -->
+            <div class="footer-grid">
+
+                <!-- Col 1: Main Contact -->
+                <div class="footer-col contact-col">
+                    <span class="footer-label">Email Me</span>
+                    <a href="mailto:jiyamaryjoby@gmail.com" class="footer-email">jiyamaryjoby@gmail.com</a>
+                    <div class="footer-credits">
+                        <p>© 2026 Design & Developed by Jefin Jobi</p>
+                        <a href="#" class="privacy-link">Privacy Policy</a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div class="footer-col">
+                    <span class="footer-label">Page</span>
+                    <ul class="footer-links">
+                        <li><a href="#home">HOME</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#skills">SKILLS</a></li>
+                        <li><a href="#experience">HISTORY</a></li>
+                        <li><a href="#projects">DEPLOYMENT</a></li>
+                        <li><a href="#education">ACADEMICS</a></li>
+                        <li><a href="#contact">UPLINK</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Social -->
+                <div class="footer-col">
+                    <span class="footer-label">Social</span>
+                    <ul class="footer-links">
+                        <li><a href="https://linkedin.com/in/jiya-mary-joby" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://github.com/jiya42" target="_blank">GitHub</a></li>
+                        <li><a href="#" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Bio/Studio Info -->
+                <div class="footer-col">
+                    <span class="footer-label">Location</span>
+                    <div class="footer-address">
+                        <p>Kochi, Kerala</p>
+                        <p>India</p>
+                        <p>Available for Worldwide</p>
+                        <p>Opportunities</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ── Footer Bottom: Giant Logo & Graphic ── -->
+            <div class="footer-giant-brand">
+                <div class="brand-graphic">
+                    <div class="shape-top"></div>
+                    <div class="shape-bottom"></div>
+                </div>
+                <h2 class="giant-text">JIYA</h2>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- ============================================================
+         PART 12: Ascend / Back to Top Button
+         ============================================================ -->
+    <a href="#home" id="ascend-btn" class="ascend-btn" aria-label="Back to Top">
+        <div class="ascend-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M18 15l-6-6-6 6" />
+            </svg>
+        </div>
+        <div class="ascend-line"></div>
+        <span class="ascend-text">ASCEND</span>
+    </a>
+
+    <div id="theme-sweep" class="theme-sweep"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>
