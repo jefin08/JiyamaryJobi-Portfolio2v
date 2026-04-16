@@ -92,33 +92,29 @@
 
         <!-- Right Side: Theme Toggle + Time + Location -->
         <div class="nav-right">
-            <!-- Theme Toggle Button -->
-            <div class="theme-switch-wrapper">
-                <button id="theme-toggle" aria-label="Toggle Theme" class="theme-switch-custom">
-                    <!-- Switch Handle (holds sun & moon icons) -->
-                    <div class="switch-handle">
-                        <!-- Sun Icon (light mode) -->
-                        <svg class="sun-icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="8" y="8" width="8" height="8" rx="1" transform="rotate(45 12 12)"
-                                fill="currentColor" />
-                            <circle cx="12" cy="3" r="1.5" fill="currentColor" />
-                            <circle cx="12" cy="21" r="1.5" fill="currentColor" />
-                            <circle cx="3" cy="12" r="1.5" fill="currentColor" />
-                            <circle cx="21" cy="12" r="1.5" fill="currentColor" />
-                        </svg>
-                        <!-- Moon Icon (dark mode) -->
-                        <svg class="moon-icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 4a8 8 0 1 0 8 8 8.4 8.4 0 0 1-8-8Z" fill="currentColor" />
-                            <path d="M17 4l.3 1.2 1.2.3-1.2.3-.3 1.2-.3-1.2-1.2-.3 1.2-.3.3-1.2z" fill="currentColor" />
-                        </svg>
-                    </div>
-                </button>
-            </div>
-
             <!-- Navigation Time + Location Tag -->
             <div class="nav-info">
                 <span class="time" id="nav-time">00:00:00</span>
                 <span class="location">KOCHI, IN</span>
+            </div>
+
+            <!-- Theme Toggle Button -->
+            <div class="theme-switch-wrapper">
+                <button id="theme-toggle" aria-label="Toggle Theme" class="theme-switch-custom">
+                    <!-- Sun Icon (appears in dark mode to switch to light) -->
+                    <svg class="sun-icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="8" width="8" height="8" rx="1" transform="rotate(45 12 12)"
+                            fill="currentColor" />
+                        <circle cx="12" cy="3" r="1.5" fill="currentColor" />
+                        <circle cx="12" cy="21" r="1.5" fill="currentColor" />
+                        <circle cx="3" cy="12" r="1.5" fill="currentColor" />
+                        <circle cx="21" cy="12" r="1.5" fill="currentColor" />
+                    </svg>
+                    <!-- Moon Icon (appears in light mode to switch to dark) -->
+                    <svg class="moon-icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
+                    </svg>
+                </button>
             </div>
 
             <!-- Menu Circle Trigger -->
